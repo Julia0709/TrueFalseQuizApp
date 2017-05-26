@@ -42,13 +42,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/true_button"
+                android:id="@+id/trueBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/trueBtn" />
 
             <Button
-                android:id="@+id/false_button"
+                android:id="@+id/falseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/falseBtn" />
@@ -82,8 +82,8 @@
             android:id="@+id/prevBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="false"
             android:background="@color/colorWhite"
+            android:clickable="false"
             android:padding="12dp"
             android:src="@drawable/ic_arrow_back_24dp"
             android:text="@string/prevBtn" />
@@ -97,8 +97,8 @@
             android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="false"
             android:background="@color/colorWhite"
+            android:clickable="false"
             android:padding="12dp"
             android:src="@drawable/ic_arrow_forward_24dp"
             android:text="@string/nextBtn" />
