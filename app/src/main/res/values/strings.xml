@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">TrueFalseQuizApp</string>
+
+    <!-- Button -->
+    <string name="trueBtn">True</string>
+    <string name="falseBtn">False</string>
+
+    <string name="nextBtn">Next</string>
+    <string name="prevBtn">Prev</string>
+
+    <string name="hintBtn">Show Hint</string>
+
+    <!-- Toast -->
+    <string name="correctToast">Correct!</string>
+    <string name="incorrectToast">Incorrect!</string>
+
+    <!-- Questions -->
+    <string name="textQuestion">Question</string>
+
+    <string name="USQuestion">Is Donald Trump the president of USA?</string>
+    <string name="CAQuestion">Is Vancouver the capital city of Canada?</string>
+    <string name="JPQuestion">Is Tokyo the capital city of Japan?</string>
+    <string name="KRQuestion">Is Seoul the capital city of Korea?</string>
+    <string name="MXQuestion">Is Mexico city the capital city of Mexico?</string>
+    <string name="UKQuestion">Is London the capital city of the UK?</string>
+
 </resources>
