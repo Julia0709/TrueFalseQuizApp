@@ -10,6 +10,9 @@
 
     <string name="hintBtn">Show Hint</string>
 
+    <string name="backBtn">Go back to question</string>
+    <string name="seeHintBtn">Show me answer</string>
+
     <!-- Toast -->
     <string name="correctToast">Correct!</string>
     <string name="incorrectToast">Incorrect!</string>
@@ -23,5 +26,8 @@
     <string name="KRQuestion">Is Seoul the capital city of Korea?</string>
     <string name="MXQuestion">Is Mexico city the capital city of Mexico?</string>
     <string name="UKQuestion">Is London the capital city of the UK?</string>
+
+    <!-- Hint -->
+    <string name="textHintConfirm">Are you sure?\nYou won\'t be able to get point.</string>
 
 </resources>
