@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextQuestion;
+    private TextView mQuestionNumber;
+    private TextView mQuestionText;
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -34,9 +35,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // textQuestion: connect Question TextView and model
-        mTextQuestion = (TextView) findViewById(R.id.textQuestion);
-        mTextQuestion.setText(R.string.USQuestion);
+        // questionText: connect Question TextView and model
+        mQuestionText = (TextView) findViewById(R.id.questionText);
+        updateQuestion();
+
+        // clickable questionNumber and questionText
+        mQuestionNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if it's not the last question
+                if (mCurrentIndex != (mQuestionArray.length - 1)) {
+                    // text pressed
+                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
+                    updateQuestion();
+                }
+            }
+        });
+
+        mQuestionText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if it's not the last question
+                if (mCurrentIndex != (mQuestionArray.length - 1)) {
+                    // text pressed
+                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
+                    updateQuestion();
+                }
+            }
+        });
 
         // trueBtn
         mTrueButton = (Button) findViewById(R.id.trueBtn);
@@ -65,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(goToHintActivity);
             }
         });
+    }
+
+    // update question text
+    private void updateQuestion() {
+        // question number
+        mQuestionNumber = (TextView) findViewById(R.id.questionNumber);
+        mQuestionNumber.setText("Question" + (mCurrentIndex + 1));
+
+        int question = mQuestionArray[mCurrentIndex].getQuestionText();
+        mQuestionText.setText(question);
     }
 
     // toast: correct or incorrect

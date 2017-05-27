@@ -15,24 +15,24 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/numberQuestion"
+            android:id="@+id/questionNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:clickable="true"
             android:onClick="goToNext"
-            android:text="@string/textQuestion"
+            android:text="@string/questionText"
             android:textAlignment="center"
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/textQuestion"
+            android:id="@+id/questionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="goToNext"
             android:padding="24dp"
-            android:text="@string/textQuestion"
+            android:text="@string/questionText"
             android:textAlignment="center"
             android:textSize="24dp" />
 

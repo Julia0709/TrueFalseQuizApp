@@ -18,7 +18,7 @@
     <string name="incorrectToast">Incorrect!</string>
 
     <!-- Questions -->
-    <string name="textQuestion">Question</string>
+    <string name="questionText">Question</string>
 
     <string name="USQuestion">Is Donald Trump the president of USA?</string>
     <string name="CAQuestion">Is Vancouver the capital city of Canada?</string>

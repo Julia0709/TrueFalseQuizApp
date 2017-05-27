@@ -2,22 +2,22 @@ package com.test.truefalsequizapp;
 
 public class Question {
 
-    private int mTextQuestion;
+    private int mQuestionText;
     private boolean mAnswerTrue;
 
     // method for question objects
-    public Question(int textQuestion, boolean answerTrue) {
-        mTextQuestion = textQuestion;
+    public Question(int questionText, boolean answerTrue) {
+        mQuestionText = questionText;
         mAnswerTrue = answerTrue;
     }
 
     // Getter & Setter
-    public int getTextQuestion() {
-        return mTextQuestion;
+    public int getQuestionText() {
+        return mQuestionText;
     }
 
-    public void setTextQuestion(int textQuestion) {
-        mTextQuestion = textQuestion;
+    public void setmQuestionText(int questionText) {
+        mQuestionText = questionText;
     }
 
     public boolean isAnswerTrue() {
