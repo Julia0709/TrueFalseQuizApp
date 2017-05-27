@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mFalseButton;
 
     private Button mHintBtn;
+
+    private ImageButton mPrevButton;
+    private ImageButton mNextButton;
 
     // question object's array
     private Question[] mQuestionArray = new Question[]{
@@ -91,6 +95,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(goToHintActivity);
             }
         });
+
+        // prevBtn
+        mPrevButton = (ImageButton) findViewById(R.id.prevBtn);
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if it's not the 1st question
+                if (mCurrentIndex != 0) {
+                    // prev button pressed
+                    mCurrentIndex = (mCurrentIndex - 1) % mQuestionArray.length;
+                    updateQuestion();
+                }
+            }
+        });
+
+        // nextBtn
+        mNextButton = (ImageButton) findViewById(R.id.nextBtn);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if it's not the last question
+                if (mCurrentIndex != (mQuestionArray.length - 1)) {
+                    // next button pressed
+                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
+                    updateQuestion();
+                }
+            }
+        });
+
     }
 
     // update question text
