@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     // question object's array
     private Question[] mQuestionArray = new Question[]{
             new Question(R.string.USQuestion, true),
-            new Question(R.string.UKQuestion, false),
-            new Question(R.string.UKQuestion, true),
-            new Question(R.string.UKQuestion, true),
-            new Question(R.string.UKQuestion, true),
+            new Question(R.string.CAQuestion, false),
+            new Question(R.string.JPQuestion, true),
+            new Question(R.string.KRQuestion, true),
+            new Question(R.string.MXQuestion, true),
             new Question(R.string.UKQuestion, true)
     };
 
