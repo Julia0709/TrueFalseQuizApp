@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(true);
+                updateButtons(true);
             }
         });
 
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(false);
+                updateButtons(true);
             }
         });
 
@@ -138,6 +140,13 @@ public class MainActivity extends AppCompatActivity {
 
         int question = mQuestionArray[mCurrentIndex].getQuestionText();
         mQuestionText.setText(question);
+    }
+
+    // control button
+    private void updateButtons(boolean answered) {
+        mFalseButton.setEnabled(!answered);
+        mTrueButton.setEnabled(!answered);
+        mHintBtn.setEnabled(!answered);
     }
 
     // toast: correct or incorrect
