@@ -5,19 +5,38 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextQuestion;
 
     private Button mTrueButton;
     private Button mFalseButton;
 
     private Button mHintBtn;
 
+    // question object's array
+    private Question[] mQuestionArray = new Question[]{
+            new Question(R.string.USQuestion, true),
+            new Question(R.string.UKQuestion, false),
+            new Question(R.string.UKQuestion, true),
+            new Question(R.string.UKQuestion, true),
+            new Question(R.string.UKQuestion, true),
+            new Question(R.string.UKQuestion, true)
+    };
+
+    private int mCurrentIndex = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // textQuestion: connect Question TextView and model
+        mTextQuestion = (TextView) findViewById(R.id.textQuestion);
+        mTextQuestion.setText(R.string.USQuestion);
 
         // trueBtn
         mTrueButton = (Button) findViewById(R.id.trueBtn);
@@ -50,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
     // toast: correct or incorrect
     private void checkAnswer(boolean userPressedTrue) {
-        boolean answerIsTrue = true;
-        int messageResId = 0;
+        boolean answerIsTrue = mQuestionArray[mCurrentIndex].isAnswerTrue();
+        int judgeAnswer = 0;
         if (answerIsTrue == userPressedTrue) {
-            messageResId = R.string.correctToast;
+            judgeAnswer = R.string.correctToast;
         } else {
-            messageResId = R.string.incorrectToast;
+            judgeAnswer = R.string.incorrectToast;
         }
 
-        Toast.makeText(MainActivity.this, messageResId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, judgeAnswer, Toast.LENGTH_SHORT).show();
     }
 
 }
