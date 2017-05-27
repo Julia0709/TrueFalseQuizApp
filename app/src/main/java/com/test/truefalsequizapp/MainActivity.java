@@ -3,6 +3,7 @@ package com.test.truefalsequizapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private int mCurrentIndex = 0;
+
+    // activity lifecycle
+    private static final String DEBUG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +151,43 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Toast.makeText(MainActivity.this, judgeAnswer, Toast.LENGTH_SHORT).show();
+    }
+
+    // Activity Loh
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(DEBUG, "onStart() called.");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(DEBUG,"onRestart() called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(DEBUG, "onResume() called.");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(DEBUG, "onPause() called.");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(DEBUG, "onStop() called.");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(DEBUG, "onDestroy called.");
     }
 
 }
