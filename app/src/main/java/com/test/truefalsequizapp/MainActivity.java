@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int mCurrentIndex = 0;
 
+    private int totalPoint = 0;
+
     // activity lifecycle
     private static final String DEBUG = "MainActivity";
 
@@ -157,11 +159,19 @@ public class MainActivity extends AppCompatActivity {
         int judgeAnswer = 0;
         if (answerIsTrue == userPressedTrue) {
             judgeAnswer = R.string.correctToast;
+            totalPoint++;
         } else {
             judgeAnswer = R.string.incorrectToast;
         }
 
         Toast.makeText(MainActivity.this, judgeAnswer, Toast.LENGTH_SHORT).show();
+
+        if (mCurrentIndex == (mQuestionArray.length-1)) {
+            double percentage = ((double) totalPoint / mQuestionArray.length) * 100;
+            Toast.makeText(MainActivity.this, "The score is " + (int)percentage + "%", Toast.LENGTH_SHORT).show();
+            totalPoint = 0;
+        }
+
     }
 
     // Activity Loh
