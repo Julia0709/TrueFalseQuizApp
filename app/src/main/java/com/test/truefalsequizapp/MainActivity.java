@@ -126,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
                     // next button pressed
                     mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
                     updateQuestion();
+                    // enable true/false/hint button
+                    updateButtons(false);
                 }
             }
         });
