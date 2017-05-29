@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
 
     private int totalPoint = 0;
+
+    // variables for animation
+    private RotateAnimation rotate;
 
     // activity lifecycle
     private static final String DEBUG = "MainActivity";
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         // nextBtn
         mNextBtn = (ImageButton) findViewById(R.id.nextBtn);
+        mNextBtn.setEnabled(false);
         mNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,10 +139,15 @@ public class MainActivity extends AppCompatActivity {
 
     // control button
     private void updateButtons(boolean answered) {
-        mNextBtn.setEnabled(answered);
         mFalseButton.setEnabled(!answered);
         mTrueButton.setEnabled(!answered);
         mHintBtn.setEnabled(!answered);
+
+        // enable and animate nextBtn when not the last question
+        if(mCurrentIndex < mQuestionArray.length) {
+            startRotation();
+            mNextBtn.setEnabled(answered);
+        }
     }
 
     // toast: correct or incorrect
@@ -158,6 +169,21 @@ public class MainActivity extends AppCompatActivity {
             totalPoint = 0;
         }
 
+    }
+
+    private void startRotation() {
+        // RotateAnimation(float fromDegrees, float toDegrees, int pivotXType, float pivotXValue, int pivotYType, float pivotYValue)
+        rotate = new RotateAnimation(0.0f, 360.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        // animation time
+        rotate.setDuration(400);
+        // animation repetition
+        rotate.setRepeatCount(0);
+        // continue showing after animation
+        rotate.setFillAfter(true);
+
+        // elements to animate
+        mNextBtn.startAnimation(rotate);
     }
 
     // Activity Log
