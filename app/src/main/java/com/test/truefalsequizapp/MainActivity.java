@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Activity Loh
+    // Activity Log
     @Override
     protected void onStart() {
         super.onStart();
