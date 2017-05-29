@@ -54,27 +54,19 @@ public class MainActivity extends AppCompatActivity {
         updateQuestion();
 
         // clickable questionNumber and questionText
+        mQuestionNumber.setEnabled(false);
         mQuestionNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if it's not the last question
-                if (mCurrentIndex != (mQuestionArray.length - 1)) {
-                    // text pressed
-                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
-                    updateQuestion();
-                }
+                goToNextQuesion();
             }
         });
 
+        mQuestionText.setEnabled(false);
         mQuestionText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if it's not the last question
-                if (mCurrentIndex != (mQuestionArray.length - 1)) {
-                    // text pressed
-                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
-                    updateQuestion();
-                }
+                goToNextQuesion();
             }
         });
 
@@ -114,17 +106,22 @@ public class MainActivity extends AppCompatActivity {
         mNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if it's not the last question
-                if (mCurrentIndex != (mQuestionArray.length - 1)) {
-                    // next button pressed
-                    mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
-                    updateQuestion();
-                    // enable true/false/hint button
-                    updateButtons(false);
-                }
+                goToNextQuesion();
             }
         });
 
+    }
+
+    // click to go next quesion
+    private void goToNextQuesion() {
+        // if it's not the last question
+        if (mCurrentIndex != (mQuestionArray.length - 1)) {
+            // text pressed
+            mCurrentIndex = (mCurrentIndex + 1) % mQuestionArray.length;
+            updateQuestion();
+            // enable true/false/hint button
+            updateButtons(false);
+        }
     }
 
     // update question text
@@ -147,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
         if(mCurrentIndex < mQuestionArray.length) {
             startRotation();
             mNextBtn.setEnabled(answered);
+            mQuestionNumber.setEnabled(answered);
+            mQuestionText.setEnabled(answered);
         }
     }
 
