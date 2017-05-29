@@ -78,16 +78,6 @@
         android:gravity="bottom"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/prevBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:clickable="false"
-            android:padding="12dp"
-            android:src="@drawable/ic_arrow_back_24dp"
-            android:text="@string/prevBtn" />
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

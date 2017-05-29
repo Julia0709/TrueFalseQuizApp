@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mHintBtn;
 
-    private ImageButton mPrevButton;
-    private ImageButton mNextButton;
+    private ImageButton mNextBtn;
 
     // question object's array
     private Question[] mQuestionArray = new Question[]{
@@ -104,23 +103,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // prevBtn
-        mPrevButton = (ImageButton) findViewById(R.id.prevBtn);
-        mPrevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // if it's not the 1st question
-                if (mCurrentIndex != 0) {
-                    // prev button pressed
-                    mCurrentIndex = (mCurrentIndex - 1) % mQuestionArray.length;
-                    updateQuestion();
-                }
-            }
-        });
-
         // nextBtn
-        mNextButton = (ImageButton) findViewById(R.id.nextBtn);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
+        mNextBtn = (ImageButton) findViewById(R.id.nextBtn);
+        mNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // if it's not the last question
@@ -148,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     // control button
     private void updateButtons(boolean answered) {
+        mNextBtn.setEnabled(answered);
         mFalseButton.setEnabled(!answered);
         mTrueButton.setEnabled(!answered);
         mHintBtn.setEnabled(!answered);
