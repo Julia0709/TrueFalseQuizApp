@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateQuestion() {
         // question number
         mQuestionNumber = (TextView) findViewById(R.id.questionNumber);
-        mQuestionNumber.setText("Question" + (mCurrentIndex + 1));
+        mQuestionNumber.setText("Question " + (mCurrentIndex + 1) + " / " + mQuestionArray.length);
 
         int question = mQuestionArray[mCurrentIndex].getQuestionText();
         mQuestionText.setText(question);
