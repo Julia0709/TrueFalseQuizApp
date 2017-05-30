@@ -1,6 +1,7 @@
 package com.test.truefalsequizapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         // clickable questionNumber and questionText
         mQuestionNumber.setEnabled(false);
+        mQuestionNumber.setTextColor(Color.DKGRAY);
         mQuestionNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mQuestionText.setEnabled(false);
+        mQuestionText.setTextColor(Color.DKGRAY);
         mQuestionText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
