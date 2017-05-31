@@ -20,7 +20,7 @@
             android:padding="24dp"
             android:text="@string/showAnswerText"
             android:textAlignment="center"
-            android:textSize="24dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/answerText"
